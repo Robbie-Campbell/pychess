@@ -4,5 +4,4 @@ from chess import Chess
 
 if __name__ == '__main__':
     game = Chess()
-    for line in (game.board):
-        print(str(line) + "\n")
+    game.play()
