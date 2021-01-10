@@ -8,12 +8,12 @@ class Board:
     def __init__(self):
         self.board = [
             ["bRo", "bKn", "bBi", "bQu", "bKi", "bBi", "bkn", "bRo", ],
-            ["bPa", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", ],
+            [" - ", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", ],
             [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
             [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
+            [" - ", " - ", " - ", "wBi", " - ", " - ", " - ", " - ", ],
             [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
-            [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
-            ["wPa", "wPa", "wPa", "wPa", "wPa", "wPa", "wPa", "wPa", ],
+            [" - ", "wPa", "wPa", "wPa", "wPa", "wPa", "wPa", "wPa", ],
             ["wRo", "wKn", "wBi", "wQu", "wKi", "wBi", "wKn", "wRo", ],
 
         ]
@@ -41,6 +41,8 @@ class Board:
             return "Enemy"
         elif self.board[new_pos[0]][new_pos[1]].__contains__("w"):
             return "Ally"
+        elif self.board[new_pos[0]][new_pos[1]] == " - ":
+            return False
         else:
             return True
 
