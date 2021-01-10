@@ -22,14 +22,15 @@ class Pawn:
             return self.y, self.x
 
     def check_if_possible(self, letter, cur_pos, intended_pos, enemy_present):
-        if (cur_pos[0] - intended_pos[0]) == 1 and (cur_pos[1] - intended_pos[1]) + 1 == 1 and enemy_present:
-            print("con1")
+        if (cur_pos[0] - intended_pos[0]) == 1 and (cur_pos[1] - intended_pos[1]) + 1 == 1 and enemy_present == "Enemy":
             return True
-        elif cur_pos[0] - intended_pos[0] == 1 and not enemy_present:
-            print("con2")
+        elif not enemy_present == "Ally":
+            print("You have an ally in that pieces place")
+            return False
+        elif cur_pos[0] - intended_pos[0] == 1 and cur_pos[1] - intended_pos[1] + 1 == 0 and not enemy_present:
             return True
-        elif cur_pos[0] - intended_pos[0] <= 2 and letter == "b" and not enemy_present:
-            print("con3")
+        elif cur_pos[0] - intended_pos[0] <= 2 and cur_pos[1] - intended_pos[1] + 1 == 0 and letter == "b" and not \
+                enemy_present:
             return True
         else:
             print("That move was not possible")

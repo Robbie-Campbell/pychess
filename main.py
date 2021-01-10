@@ -1,7 +1,6 @@
-from board import Chess
+import game_loop
 
 # Runs the main program
 
 if __name__ == '__main__':
-    game = Chess()
-    game.show_board()
+    game = game_loop.update_board()

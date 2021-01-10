@@ -36,8 +36,11 @@ class Board:
         self.board[start_y][start_x] = " - "
         self.board[new_y][new_x] = piece
 
-    def check_for_enemy(self, new_pos):
-        if self.board[new_pos[0]][new_pos[1]] == " - ":
-            return False
+    def check_for_piece(self, new_pos):
+        if self.board[new_pos[0]][new_pos[1]].__contains__("b"):
+            return "Enemy"
+        elif self.board[new_pos[0]][new_pos[1]].__contains__("w"):
+            return "Ally"
         else:
             return True
+
