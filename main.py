@@ -1,8 +1,6 @@
-from chess import Chess
+import game_loop
 
 # Runs the main program
 
 if __name__ == '__main__':
-    game = Chess()
-    for line in (game.board):
-        print(str(line) + "\n")
+    game = game_loop.update_board()
