@@ -8,10 +8,10 @@ class Board:
     def __init__(self):
         self.board = [
             ["bRo", "bKn", "bBi", "bQu", "bKi", "bBi", "bkn", "bRo", ],
-            ["bPa", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", ],
+            [" - ", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", "bPa", ],
             [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
             [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
-            [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
+            [" - ", " - ", " - ", "wBi", " - ", " - ", " - ", " - ", ],
             [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", ],
             ["wPa", "wPa", "wPa", "wPa", "wPa", "wPa", "wPa", "wPa", ],
             ["wRo", "wKn", "wBi", "wQu", "wKi", "wBi", "wKn", "wRo", ],
@@ -37,10 +37,12 @@ class Board:
         self.board[new_y][new_x] = piece
 
     def check_for_piece(self, new_pos):
-        if self.board[new_pos[0]][new_pos[1]].__contains__("b"):
+        if self.board[new_pos[0]][new_pos[1] - 1].__contains__("b"):
             return "Enemy"
-        elif self.board[new_pos[0]][new_pos[1]].__contains__("w"):
+        elif self.board[new_pos[0]][new_pos[1] - 1].__contains__("w"):
             return "Ally"
+        elif self.board[new_pos[0]][new_pos[1] - 1] == " - ":
+            return False
         else:
             return True
 
