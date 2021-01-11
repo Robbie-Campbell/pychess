@@ -14,12 +14,11 @@ class Bishop(PiecesSuper):
             return self.y, self.x, None
 
     def check_if_possible(self):
-        possible = self.new_y - self.new_x
-        also_possible = self.new_x + self.new_y
-        print(self.x)
-        if possible == 0:
+        possible = abs(self.new_x - self.x) - abs(self.new_y - self.y)
+        print(possible)
+        if possible == 1:
             return True, "left_diag"
-        if also_possible == 0:
+        elif possible == -1:
             return True, "right_diag"
         else:
             print("That move was not possible")

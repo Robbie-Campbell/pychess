@@ -7,8 +7,8 @@ class Rook(PiecesSuper):
         self.unit_type = "rook"
 
     def move_rook(self):
-        if self.check_if_possible(self.letter, [self.y, self.x]):
-            booler, direction = self.check_if_possible(self.letter, [self.y, self.x])
+        if self.check_if_possible([self.y, self.x], [self.new_y, self.new_x]):
+            booler, direction = self.check_if_possible([self.y, self.x], [self.new_y, self.new_x])
             return self.new_y, self.new_x - 1, direction
         else:
             return self.y, self.x, None
